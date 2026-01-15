@@ -1,0 +1,16 @@
+# Markdownlint configuration
+default: true
+
+# Allow longer lines (useful for documentation)
+MD013: false
+
+# Allow inline HTML
+MD033: false
+
+# Allow duplicate headings in different sections
+MD024:
+  siblings_only: true
+
+# Allow trailing punctuation in headings
+MD026:
+  punctuation: ".,;:!"

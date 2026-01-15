@@ -1,0 +1,18 @@
+# docker, podman, nerdctl, etc.
+RUNTIME=podman
+
+IMAGE_TAG='localhost/claude:v1.0.0'
+
+AWS_REGION=us-east-1
+
+# the AWS IAM Role ARN that Claude Code will use
+AWS_IAM_ROLE=''
+
+# determines whether we are making inference api calls to AWS Bedrock or Anthropic
+CLAUDE_CODE_USE_BEDROCK=1
+
+# optional: extra claude cli params
+# CLAUDE_OPTIONS=''
+
+# optional: if you want to use a custom application inference profile, pass its arn via ANTHROPIC_MODEL var
+# ANTHROPIC_MODEL=''
