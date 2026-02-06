@@ -52,6 +52,7 @@ cmd_run() {
       --profile "${AWS_PROFILE:-default}" \
       --role-arn "${AWS_IAM_ROLE}" \
       --role-session-name "ClaudeCodeSession" \
+      --duration-seconds "${AWS_SESSION_DURATION:-3600}" \
       --output json
   }
   sts_output=$(assume_role)

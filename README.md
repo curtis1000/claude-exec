@@ -74,6 +74,7 @@ The config file is formatted as shell variables. The config is passed to the con
 | `AWS_IAM_ROLE` | Yes | - | ARN of the IAM role that Claude Code will use |
 | `AWS_REGION` | No | - | AWS region to use for Bedrock API calls (e.g., `us-east-1`) |
 | `AWS_PROFILE` | No | `default` | AWS CLI profile to use for assuming the IAM role |
+| `AWS_SESSION_DURATION` | No | `3600` | Duration in seconds for AWS STS session (max 43200, requires IAM role max-session-duration to be set accordingly) |
 | `CLAUDE_CODE_USE_BEDROCK` | No | - | Set to `1` to use AWS Bedrock instead of Anthropic API for inference |
 | `ANTHROPIC_MODEL` | No | - | ARN of a custom Application Inference Profile for cost attribution |
 | `CLAUDE_OPTIONS` | No | - | Additional command-line options to pass to the Claude CLI |

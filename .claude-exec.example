@@ -8,6 +8,9 @@ AWS_REGION=us-east-1
 # the AWS IAM Role ARN that Claude Code will use
 AWS_IAM_ROLE=''
 
+# optional: if the AWS_IAM_ROLE allows for it, you can specify a longer session lifetime
+# AWS_SESSION_DURATION=43200
+
 # determines whether we are making inference api calls to AWS Bedrock or Anthropic
 CLAUDE_CODE_USE_BEDROCK=1
 
