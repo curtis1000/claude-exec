@@ -1,7 +1,9 @@
 # docker, podman, nerdctl, etc.
 RUNTIME=podman
 
-IMAGE_TAG='localhost/claude:v1.0.0'
+IMAGE_TAG='localhost/claude:v2.1.41'
+
+CLAUDE_CODE_VERSION=2.1.41
 
 AWS_REGION=us-east-1
 

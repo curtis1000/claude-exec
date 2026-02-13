@@ -1,7 +1,8 @@
 FROM node:lts-bookworm-slim
 
-RUN npm install -g @anthropic-ai/claude-code@latest \
-    && apt-get update \
+ARG CLAUDE_CODE_VERSION
+
+RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl wget jq unzip ca-certificates git \
     && update-ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
@@ -14,5 +15,7 @@ RUN npm install -g @anthropic-ai/claude-code@latest \
     && unzip awscliv2.zip \
     && ./aws/install \
     && rm -rf awscliv2.zip aws
+
+RUN npm install -g @anthropic-ai/claude-code@"$CLAUDE_CODE_VERSION"
 
 WORKDIR /src

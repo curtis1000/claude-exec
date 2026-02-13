@@ -71,6 +71,7 @@ The config file is formatted as shell variables. The config is passed to the con
 |----------|----------|---------|-------------|
 | `RUNTIME` | Yes | - | Container runtime to use (e.g., `docker`, `podman`, `nerdctl`) |
 | `IMAGE_TAG` | Yes | - | Tag for the container image (e.g., `localhost/claude:v1.0.0`) |
+| `CLAUDE_CODE_VERSION` | Yes | - | Version of Claude Code to use (e.g., `2.1.41`) |
 | `AWS_IAM_ROLE` | Yes | - | ARN of the IAM role that Claude Code will use |
 | `AWS_REGION` | No | - | AWS region to use for Bedrock API calls (e.g., `us-east-1`) |
 | `AWS_PROFILE` | No | `default` | AWS CLI profile to use for assuming the IAM role |
@@ -109,6 +110,7 @@ This is the minimal policy for Claude Code's IAM Role in order to successfully e
             "Effect": "Allow",
             "Action": [
                 "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream",
                 "aws-marketplace:ViewSubscriptions",
                 "aws-marketplace:Subscribe"
             ],
