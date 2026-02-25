@@ -1,7 +1,6 @@
-FROM node:lts-bookworm-slim
-
-ARG CLAUDE_CODE_VERSION
-
+FROM debian:bookworm-slim
+WORKDIR /src
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update \
     && apt-get install -y --no-install-recommends vim curl wget jq unzip ca-certificates git \
     && update-ca-certificates \
@@ -15,7 +14,6 @@ RUN apt-get update \
     && unzip awscliv2.zip \
     && ./aws/install \
     && rm -rf awscliv2.zip aws
+RUN curl -fsSL https://claude.ai/install.sh | bash
 
-RUN npm install -g @anthropic-ai/claude-code@"$CLAUDE_CODE_VERSION"
-
-WORKDIR /src
+CMD ["/root/.local/bin/claude"]

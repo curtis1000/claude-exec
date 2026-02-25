@@ -40,7 +40,7 @@ cmd=$([ -n "${1+set}" ] && echo "$1" || echo "run")
 
 # Subcommand definitions
 cmd_build() {
-  "${RUNTIME}" build --build-arg CLAUDE_CODE_VERSION="${CLAUDE_CODE_VERSION}" . -t "${IMAGE_TAG}"
+  "${RUNTIME}" build . -t "${IMAGE_TAG}"
 }
 
 # 1. Authenticates with AWS STS
@@ -71,7 +71,7 @@ cmd_run() {
     --env "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" \
     --env "AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}" \
     "${IMAGE_TAG}" \
-    claude ${CLAUDE_OPTIONS:-}
+    /root/.local/bin/claude ${CLAUDE_OPTIONS:-}
 }
 
 # creates a symlink in $PATH
