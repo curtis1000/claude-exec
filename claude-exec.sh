@@ -66,6 +66,7 @@ cmd_run() {
     --tty \
     --rm \
     --volume "$(pwd):/src" \
+    --volume "${HOME}/.local/share/cx:/root/.claude" \
     --env-file "${ENV_FILE}" \
     --env "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" \
     --env "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" \
@@ -77,9 +78,12 @@ cmd_run() {
 # creates a symlink in $PATH
 # most environments include $HOME/.local/bin in $PATH by default
 cmd_symlink() {
-  ln -s ${__file} $HOME/.local/bin/cx
-  echo "Creating symlink:"
-  echo "ln -s ${__file} $HOME/.local/bin/cx"
+  test -d ${HOME}/.local/share/cx || mkdir -p ${HOME}/.local/share/cx
+  test -f $HOME/.local/bin/cx || {
+    ln -s ${__file} $HOME/.local/bin/cx
+    echo "Creating symlink:"
+    echo "ln -s ${__file} $HOME/.local/bin/cx"
+  }
   echo "You may now invoke Claude Exec with \`cx\`."
 }
 
